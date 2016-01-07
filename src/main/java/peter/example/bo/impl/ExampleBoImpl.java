@@ -1,5 +1,6 @@
 package peter.example.bo.impl;
 
+import org.springframework.transaction.annotation.Transactional;
 import peter.example.bo.ExampleBo;
 import peter.example.dao.ExampleDao;
 import peter.example.model.MyObject;
@@ -16,14 +17,17 @@ public class ExampleBoImpl implements ExampleBo {
         this.exampleDao = exampleDao;
     }
 
+    @Transactional
     public Integer save(MyObject object) {
         return (Integer) exampleDao.save(object);
     }
 
+    @Transactional
     public void update(MyObject object) {
         exampleDao.update(object);
     }
 
+    @Transactional
     public void delete(MyObject object) {
         exampleDao.delete(object);
     }

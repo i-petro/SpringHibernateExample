@@ -1,5 +1,6 @@
 package peter.example.dao.impl;
 
+import org.hibernate.Criteria;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
 import peter.example.dao.ExampleDao;
@@ -12,17 +13,14 @@ import java.io.Serializable;
  */
 public class ExampleDaoImpl extends HibernateDaoSupport implements ExampleDao {
 
-    @Transactional
     public Serializable save(MyObject object) {
         return getHibernateTemplate().save(object);
     }
 
-    @Transactional
     public void update(MyObject object) {
         getHibernateTemplate().update(object);
     }
 
-    @Transactional
     public void delete(MyObject object) {
         getHibernateTemplate().delete(object);
     }
